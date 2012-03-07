@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ page.title }}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <meta name="author" content="{{ site.author.name }}">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+    <header>
+      <div id="title">
+        <img src="{{ ASSET_PATH }}/img/title.png" title="EnterTheBasement is the place where the PieSync team hangs out after a rough day of work" />
+      </div>
+    </header>
+    <sidebar>
+      <div id="who">
+        <img class="center" src="{{ASSET_PATH}}/img/piesync-logo.jpg" title="We work at PieSync, but hangout here." />
+        <p>
+          We are Ewout, Mattias and Simon from PieSync and this is our basement. We like to hang out here after work (and sometimes during). So grab a seat and make yourself at home.
+        </p>
+      </div>
+    </sidebar>
+    <div role="main" class="container">
+        <p id="subtitle">
+          We talk about web development, design, startup culture and every day life as a beginning entrepreneur.
+        </p>
+      <section class="post">
+        <h1>The title of the first blogpost</h1>
+        <div class="sub">
+          <span class="author">Simon</span>
+          <span class="date">7 March</span>
+          <span class="comments">
+            <a href="">12 comments</a>
+          </span>
+        </div>
+        <p>
+          Some very interesting paragraph, with not that much to say. After all, we want to smooth in the transition of our new found presence. As soon as they get accustomed to us, we will start flooding them with text. They will have no idea what hit them. And that, my friends, is what makes it so clever.
+        </p>
+        <p>
+          An even shorter paragraph. That's right. It's done.
+        </p>
+        <p class="more">
+          <a href="">
+            Read more
+          </a>
+        </p>
+        </section>
+    </div>
+    <footer>
+      <ul>
+        <li>
+          <a href="http://www.piesync.com" title="PieSync - the power of highrise in your gmail">PieSync</a>
+        </li>
+        <li>
+          <a href="https://twitter.com/piesync" title="Follow PieSync on Twitter">Twitter</a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+    {% include JB/analytics %}
+  </body>
+</html>

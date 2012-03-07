@@ -129,6 +129,7 @@ namespace :theme do
       puts "Generating '#{theme_name}' layout: #{File.basename(filename)}"
 
       open(File.join(CONFIG['layouts'], File.basename(filename)), 'w') do |page|
+        puts "Checking on page #{File.basename(page)}"
         if File.basename(filename, ".html").downcase == "default"
           page.puts "---"
           page.puts File.read(settings_file) if File.exist?(settings_file)
