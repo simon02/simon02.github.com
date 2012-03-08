@@ -15,13 +15,13 @@
       });
       $("#submit").click(function() {
         if (!$("#email").val().match("^.*@.*\.[a-zA-Z]{2,3}$")) {
-          _gaq.push(['_trackEvent', 'beta', 'email_fail']);
+          // _gaq.push(['_trackEvent', 'beta', 'email_fail']);
           alert("We could not correctly interpret your email. If you believe this is incorrect, please send us a mail using the feedback button on the right.");
           $("#email").focus();
           return false;
         }
-        _gaq.push(['_trackEvent', 'beta', 'email_add']);
-        $("#submit").attr("value","requesting beta access...");
+        // _gaq.push(['_trackEvent', 'beta', 'email_add']);
+        $("#submit").attr("value","requesting access...");
         $("#submit").attr("disabled","disabled");
 
         $.ajax({
