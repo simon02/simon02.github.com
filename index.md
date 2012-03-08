@@ -6,7 +6,7 @@ description: "A blog about web development, design, startup culture and the live
 
 {% for post in site.posts offset:0 limit:15 %}
 <section class="post">
-  <h1>{{ post.title }}</h1>
+  <h1><a href="{{post.id}}" title="{{ post.title | strip_html | truncatewords: 6}}">{{ post.title }}</a></h1>
   <div class="sub">
     {% if post.author %}
     <span class="author">{{ post.author }}</span>

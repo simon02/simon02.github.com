@@ -8,7 +8,7 @@ module Jekyll
       # check if the post has 
       # <!-- more -->
       # and split there. Otherwise split on 5 paragraphs
-      return excerpt  post_content if has_excerpt post_content
+      return excerpt(post_content) if has_excerpt(post_content)
       paragraphs = post_content.split(/^$/)
       size = 0
       p = []
