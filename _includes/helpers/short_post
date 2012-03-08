@@ -1,0 +1,16 @@
+<section class="post">
+<h1>{{ post.title }}</h1>
+<div class="sub">
+  <span class="author">{{ post.author || "" }}</span>
+  <span class="date">{{ post.date | date_to_string_short }}</span>
+  <span class="comments">
+    <a href="#"></a>
+  </span>
+</div>
+{{ post.content | short_post_content }}
+<p class="more">
+  <a href="#">
+    Read more
+  </a>
+</p>
+</section>
