@@ -1,13 +1,15 @@
 <section class="post">
 <h1>{{ post.title }}</h1>
 <div class="sub">
-  <span class="author">{{ post.author || "" }}</span>
+  {% if post.author %}
+    <span class="author">{{ post.author }}</span>
+  {% endif %}
   <span class="date">{{ post.date | date_to_string_short }}</span>
   <span class="comments">
-    <a href="#"></a>
+    <a href="#">0 comments</a>
   </span>
 </div>
-{{ post.content | short_post_content }}
+{{ post.content |  }}
 <p class="more">
   <a href="#">
     Read more
