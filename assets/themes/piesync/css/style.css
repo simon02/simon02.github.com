@@ -135,10 +135,10 @@ div[role='main'] {
   padding: 0;
 }
 #beta-panel ul {
-  width: 275px;
+  width: 290px;
   display: inline-block;
   list-style: url('../img/check.png');
-  padding-left: 45px;
+  padding-left: 50px;
   font-size: 17px;
   line-height: 30px;
 }
