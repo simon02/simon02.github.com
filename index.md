@@ -4,7 +4,7 @@ description: "A blog about web development, design, startup culture and the live
 ---
 {% include JB/setup %}
 
-{% for post in site.posts offset:0 limit:15 %}
+{% for post in site.posts offset:0 limit:10 %}
 <section class="post">
   <h1><a href="{{post.id}}" title="{{ post.title | strip_html | truncatewords: 6}}">{{ post.title }}</a></h1>
   <div class="sub">
@@ -13,7 +13,7 @@ description: "A blog about web development, design, startup culture and the live
     {% endif %}
     <span class="date">{{ post.date | date_to_string_short }}</span>
     <span class="comments">
-      <a href="#">0 comments</a>
+      <a href="{{post.id}}#disqus_thread">Comments</a>
     </span>
   </div>
   {{ post.content | short_post_content }}
@@ -24,3 +24,5 @@ description: "A blog about web development, design, startup culture and the live
   </p>
 </section>
 {% endfor %}
+
+<a style="font-size: 18px" href="archive.html" title="Older posts">Older Posts</a>
