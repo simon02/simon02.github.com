@@ -40,14 +40,15 @@ module JB
   end #Path
 end #JB
 
-# Usage: rake post title="A Title" date="2012-02-09"
+# Usage: rake post title="A Title" date="2012-02-09" author="name"
 desc "Begin a new post in #{CONFIG['posts']}"
 task :post do
   abort("rake aborted: '#{CONFIG['posts']}' directory not found.") unless FileTest.directory?(CONFIG['posts'])
   title = ENV["title"] || "new-post"
+  author = ENV["author"] || ""
   slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   begin
-    date = (Time.parse(ENV['date']) || Time.now).strftime('%Y-%m-%d')
+    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
   rescue Exception => e
     puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
     exit -1
@@ -62,10 +63,16 @@ task :post do
     post.puts "---"
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
+    post.puts "author: #{author}"
     post.puts "category: "
     post.puts "tags: []"
+    post.puts "beta_panel: true"
     post.puts "---"
     post.puts "{% include JB/setup %}"
+    post.puts "\n"
+    post.puts "<!-- The comment below is used to indicate which part should be shown on the homepage. Everything below it will only be available in the seperate page showing the blog post itself.
+Remove this comment before pushing to production. -->"
+    post.puts "<!-- more -->"
   end
 end # task :post
 

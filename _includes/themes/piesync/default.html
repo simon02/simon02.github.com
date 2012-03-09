@@ -14,7 +14,7 @@
 
     <!-- Le styles -->
     <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
-    <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ ASSET_PATH }}/css/style.min.css" rel="stylesheet" type="text/css" media="all">
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -29,74 +29,50 @@
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
     <header>
       <div id="title">
-        <img src="{{ ASSET_PATH }}/img/title.png" title="EnterTheBasement is the place where the PieSync team hangs out after a rough day of work" width="872" height="94"/>
+        <a href="/" style="position: relative" title="Go back to the basement">
+          <img src="{{ ASSET_PATH }}/img/title.png" width="872" height="94"/>
+          <img id="arrow" src="{{ ASSET_PATH }}/img/enter-arrow.png" width="38" height="39" style="display: none;position: absolute;left: 29px;"/>
+        </a>
       </div>
     </header>
-    <sidebar>
-      <div id="who">
-        <img src="{{ASSET_PATH}}/img/piesync-logo.jpg" title="We work at PieSync, but hangout here." width="160" height="91" style="margin-left:35px" />
-        <p>
-          We are Ewout, Mattias and Simon from <a href="http://www.piesync.com" title="Integration of Highrise in your Gmail">PieSync</a> and this is our basement. We like to hang out here after work (and sometimes during). So grab a seat and make yourself at home.
-        </p>
-      </div>
-      <!-- <div id="beta">
-        <h3>Private Beta Coming</h3>
-        <p>Enter your email below and be one of the first to try out <a href="http://www.piesync.com" title="Integration of Highrise in your Gmail">PieSync</a>.</p>
-        <form>
-          <input type="text" placeholder="email" name="email" id="email2" />
-          <input type="submit" name="submit" id="submit2" value="Get me on the list" />
-        </form>
-      </div> -->
-    </sidebar>
+    {% if page.beta_panel %}
+      {% assign beta_panel = page.beta_panel %}
+    {% endif %}
+    {% include themes/piesync/_sidebar.html %}
     <div role="main" class="container">
       <p id="subtitle">
         We talk about web development, design, startup culture and every day life as a beginning entrepreneur.
       </p>
-      <div id="beta-panel">
-        <h2 class="no-padmar title" style="margin-top: 5px">Subscribe for Private PieSync Beta</h2>
-        <h4 class="no-padmar title" style="margin-top: 5px">Finally have the power of Highrise in your Gmail</h4>
-        <div style="height: 135px; margin-top: 5px">
-          <ul class="no-padmar">
-            <li>Up to date information</li>
-            <li>Facilitate interaction</li>
-            <li>Full mobile access</li>
-            <li>No installations</li>
-          </ul>
-          <div class="form" id="cta">
-            <p class="no-padmar" style="font-size: 14px; margin-bottom: 5px">
-              Fill in your email and be one of the first to try it out:
-            </p>
-            <form>
-              <input type="text" placeholder="email" name="email" id="email" />
-              <input type="submit" name="submit" id="submit" value="Get me on the list" />
-            </form>
-          </div>
-          <div id="feedback" style="display:none; width: 225px; display: inline-block">
-            <p class="no-padmar" style="font-weight:bold;">Thank you for your interest.</p>
-            <p class="no-padmar">You will receive a mail shortly as confirmation, make sure to also check your spam folder.</p>
-            <p class="no-padmar">
-              <a onclick="_gaq.push(['_trackEvent', 'beta', 'social', 'twitter', document.getElementById('email').value])" href="https://twitter.com/share?text=I+just+signed+up+to+get+integration+of+Highrise+in+my+Gmail.+Check+out&amp;url=http://piesync.com&amp;via=piesync" style="color:#B5E6CA">Tweet this</a>
-               or 
-              <a onclick="_gaq.push(['_trackEvent', 'beta', 'social', 'twitter', document.getElementById('email').value])" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.piesync.com" style="color:#B5E6CA">facebook it</a>
-            </p>
-          </div>
-        </div>
-      </div>
       {{ content }}
     </div>
+    <div class="clearfix"></div>
     <footer>
       <ul>
         <li>
           <a href="http://www.piesync.com" title="PieSync - the power of highrise in your gmail">PieSync</a>
         </li>
         <li>
+          <a href="{{ BASE_PATH }}">EnterTheBasement</a>
+        </li>
+        <li>
+          <a href="{{ BASE_PATH }}/archive.html">Archive</a>
+        </li>
+        <li>
+          <a href="{{ BASE_PATH }}/categories.html">Categories</a>
+        </li>
+        <li>
           <a href="https://twitter.com/piesync" title="Follow PieSync on Twitter">Twitter</a>
+        </li>
+        <li>
+          <a href="mailto:support@piesync.com" title="Send us a mail">Contact</a>
         </li>
       </ul>
     </footer>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="{{ ASSET_PATH }}/js/piesync.js"></script>
+    <script src="{{ ASSET_PATH }}/js/piesync.min.js"></script>
+    <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+    <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/piesync.json?callback=twitterCallback2&count=1"></script>
 
     {% include JB/analytics %}
   </body>

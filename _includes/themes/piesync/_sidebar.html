@@ -1,0 +1,44 @@
+<sidebar>
+  <div id="who">
+    <img src="{{ASSET_PATH}}/img/piesync-logo.jpg" title="We work at PieSync, but hangout here." width="160" height="91" style="margin-left:35px" />
+    <p>
+      We are Ewout, Mattias and Simon from <a href="http://www.piesync.com" title="Integration of Highrise in your Gmail">PieSync</a> and this is our basement. We like to hang out here after work (and sometimes during). So grab a seat and make yourself at home.
+    </p>
+  </div>
+  {% if beta_panel %}
+
+  <div id="beta-cta">
+    <h3>Private Beta Coming</h3>
+    <p>Enter your email below and be one of the first to try out <a href="http://www.piesync.com" title="Integration of Highrise in your Gmail">PieSync</a>.</p>
+    <form class="beta">
+      <input type="text" placeholder="email" id="beta-email" name="email" />
+      <input type="submit" name="submit" value="Get me on the list" />
+    </form>
+  </div>
+  <div id="feedback" style="display: none; width: 225px;">
+    <p class="no-padmar" style="font-weight:bold;">Thank you for your interest.</p>
+    <p class="no-padmar">You will receive a mail shortly as confirmation, make sure to also check your spam folder.</p>
+    <p class="no-padmar">
+      <a onclick="_gaq.push(['_trackEvent', 'beta', 'social', 'twitter', document.getElementById('email').value])" href="https://twitter.com/share?text=I+just+signed+up+to+get+integration+of+Highrise+in+my+Gmail.+Check+out&amp;url=http://piesync.com&amp;via=piesync">Tweet this</a>
+       or 
+      <a onclick="_gaq.push(['_trackEvent', 'beta', 'social', 'twitter', document.getElementById('email').value])" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.piesync.com">facebook it</a>
+    </p>
+  </div>
+  {% endif %}
+
+  <div id="twitter">
+    <p>
+      &rarr; Follow us on <a href="https://twitter.com/piesync" title="@piesync on Twitter">Twitter</a>
+    </p>
+    <div id="twitter_div"><ul id="twitter_update_list" class="no-list no-padmar"><li>&nbsp;</li></ul></div>
+  </div>
+
+  <div id="cat_side">
+    <h3>Categories</h3>
+    <ul class="no-list no-padmar categories">
+      {% assign categories_list = site.categories %}
+      {% include JB/categories_list %}
+    </ul>
+  </div>
+
+</sidebar>

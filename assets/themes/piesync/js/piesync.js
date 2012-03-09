@@ -1,5 +1,9 @@
+---
+---
 
     $(function() {
+      $("#title").mouseover(function() { $("#arrow").css('display','inline') });
+      $("#title").mouseout(function() { $("#arrow").hide() });
       $(".more-info").mouseover(function() {
         var div = $("#" + $(this).attr("data-hover-target"));
         var q = $(this);
@@ -13,24 +17,24 @@
       $(".more-info").mouseout(function() {
         $("#" + $(this).attr("data-hover-target")).hide();
       });
-      $("#submit").click(function() {
-        if (!$("#email").val().match("^.*@.*\.[a-zA-Z]{2,3}$")) {
+      $(".beta input[type='submit']").click(function() {
+        if (!$("#beta-email").val().match("^.*@.*\.[a-zA-Z]{2,3}$")) {
           // _gaq.push(['_trackEvent', 'beta', 'email_fail']);
           alert("We could not correctly interpret your email. If you believe this is incorrect, please send us a mail using the feedback button on the right.");
-          $("#email").focus();
+          $("#beta-email").focus();
           return false;
         }
         // _gaq.push(['_trackEvent', 'beta', 'email_add']);
-        $("#submit").attr("value","requesting access...");
-        $("#submit").attr("disabled","disabled");
+        $(this).attr("value","requesting access...");
+        $(this).attr("disabled","disabled");
 
         $.ajax({
           url: "http://highrisesync-promo.herokuapp.com/mail",
-          data: { email: $("#email").val() },
+          data: { email: $("#beta-email").val() },
           dataType: "jsonp",
           success: function(data, textStatus, jqXHR) {
-            $("#cta").hide();
-            $("#feedback").show();
+            $("#beta-cta").hide();
+            $("#feedback").css('display','inline-block');
           }
         });
         return false;

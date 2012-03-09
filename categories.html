@@ -3,11 +3,13 @@ layout: page
 title: Categories
 header: Posts By Category
 group: navigation
+beta_panel: true
 ---
 {% include JB/setup %}
 
-<ul class="tag_box inline">
+<ul class="tag_box categories no-list" style="padding-top: 20px">
   {% assign categories_list = site.categories %}
+  {% assign showsize = true %}
   {% include JB/categories_list %}
 </ul>
 
